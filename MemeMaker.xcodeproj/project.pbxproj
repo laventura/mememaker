@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0062482F1B253635002DC673 /* MemeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0062482E1B253635002DC673 /* MemeCollectionViewController.swift */; };
+		006248311B253711002DC673 /* MemeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006248301B253711002DC673 /* MemeCollectionViewCell.swift */; };
 		008BF5121B23C5B0009D09C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008BF5111B23C5B0009D09C8 /* AppDelegate.swift */; };
 		008BF5141B23C5B0009D09C8 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008BF5131B23C5B0009D09C8 /* FirstViewController.swift */; };
 		008BF5161B23C5B0009D09C8 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008BF5151B23C5B0009D09C8 /* SecondViewController.swift */; };
@@ -14,6 +16,10 @@
 		008BF51B1B23C5B0009D09C8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 008BF51A1B23C5B0009D09C8 /* Images.xcassets */; };
 		008BF51E1B23C5B0009D09C8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 008BF51C1B23C5B0009D09C8 /* LaunchScreen.xib */; };
 		008BF52A1B23C5B0009D09C8 /* MemeMakerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008BF5291B23C5B0009D09C8 /* MemeMakerTests.swift */; };
+		00F9ECA91B23C679006DAF0C /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F9ECA81B23C679006DAF0C /* EditorViewController.swift */; };
+		00F9ECAB1B23E762006DAF0C /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F9ECAA1B23E762006DAF0C /* Meme.swift */; };
+		00F9ECAD1B241E27006DAF0C /* MemeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F9ECAC1B241E27006DAF0C /* MemeTableViewController.swift */; };
+		00F9ECAF1B242CCE006DAF0C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F9ECAE1B242CCE006DAF0C /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +33,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0062482E1B253635002DC673 /* MemeCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeCollectionViewController.swift; sourceTree = "<group>"; };
+		006248301B253711002DC673 /* MemeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeCollectionViewCell.swift; sourceTree = "<group>"; };
 		008BF50C1B23C5B0009D09C8 /* MemeMaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemeMaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		008BF5101B23C5B0009D09C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		008BF5111B23C5B0009D09C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -38,6 +46,10 @@
 		008BF5231B23C5B0009D09C8 /* MemeMakerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MemeMakerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		008BF5281B23C5B0009D09C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		008BF5291B23C5B0009D09C8 /* MemeMakerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeMakerTests.swift; sourceTree = "<group>"; };
+		00F9ECA81B23C679006DAF0C /* EditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
+		00F9ECAA1B23E762006DAF0C /* Meme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
+		00F9ECAC1B241E27006DAF0C /* MemeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeTableViewController.swift; sourceTree = "<group>"; };
+		00F9ECAE1B242CCE006DAF0C /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +95,12 @@
 				008BF5131B23C5B0009D09C8 /* FirstViewController.swift */,
 				008BF5151B23C5B0009D09C8 /* SecondViewController.swift */,
 				008BF5171B23C5B0009D09C8 /* Main.storyboard */,
+				00F9ECAC1B241E27006DAF0C /* MemeTableViewController.swift */,
+				00F9ECAA1B23E762006DAF0C /* Meme.swift */,
+				00F9ECA81B23C679006DAF0C /* EditorViewController.swift */,
+				0062482E1B253635002DC673 /* MemeCollectionViewController.swift */,
+				006248301B253711002DC673 /* MemeCollectionViewCell.swift */,
+				00F9ECAE1B242CCE006DAF0C /* DetailViewController.swift */,
 				008BF51A1B23C5B0009D09C8 /* Images.xcassets */,
 				008BF51C1B23C5B0009D09C8 /* LaunchScreen.xib */,
 				008BF50F1B23C5B0009D09C8 /* Supporting Files */,
@@ -218,6 +236,12 @@
 				008BF5161B23C5B0009D09C8 /* SecondViewController.swift in Sources */,
 				008BF5121B23C5B0009D09C8 /* AppDelegate.swift in Sources */,
 				008BF5141B23C5B0009D09C8 /* FirstViewController.swift in Sources */,
+				006248311B253711002DC673 /* MemeCollectionViewCell.swift in Sources */,
+				00F9ECAD1B241E27006DAF0C /* MemeTableViewController.swift in Sources */,
+				0062482F1B253635002DC673 /* MemeCollectionViewController.swift in Sources */,
+				00F9ECA91B23C679006DAF0C /* EditorViewController.swift in Sources */,
+				00F9ECAB1B23E762006DAF0C /* Meme.swift in Sources */,
+				00F9ECAF1B242CCE006DAF0C /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,6 +433,7 @@
 				008BF52F1B23C5B0009D09C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		008BF5301B23C5B0009D09C8 /* Build configuration list for PBXNativeTarget "MemeMakerTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +442,7 @@
 				008BF5321B23C5B0009D09C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
