@@ -16,12 +16,16 @@ class MemeCollectionViewController: UICollectionViewController, UICollectionView
         super.viewDidLoad()
 
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .Plain, target: self, action: "showMemeEditor")
+        
+        self.navigationItem.title = "Sent Memes"
     }
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
         self.tabBarController?.tabBar.hidden = false
+        
+        self.collectionView!.allowsMultipleSelection = false
         
         // reload the collection
         self.collectionView!.reloadData()
@@ -39,21 +43,18 @@ class MemeCollectionViewController: UICollectionViewController, UICollectionView
     }
     */
     
+    
     // MARK: - Collection View Delegate
-    override func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         // save ref to the selected Meme
         // currentIndex = indexPath.row
         
-        //debug
-        println("*** Selected Index: \(indexPath.row)")
         
-        let detailVC = self.storyboard?.instantiateViewControllerWithIdentifier("DetailViewController") as DetailViewController
         let theMeme = appDelegate().memes[indexPath.row]
         
-        //debug
-        println("*** Sending to DetailVC: \(theMeme.top) - \(theMeme.bottom)")
+        let detailVC = self.storyboard?.instantiateViewControllerWithIdentifier("DetailViewController") as DetailViewController
         
-        // pass this meme to the DetailVC
+        // pass the selected meme to the DetailVC
         detailVC.theMeme = theMeme
         // nav to detailVC
         self.navigationController!.pushViewController(detailVC, animated: true)

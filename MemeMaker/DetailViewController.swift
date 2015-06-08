@@ -22,7 +22,7 @@ class DetailViewController: UIViewController {
         self.memeImageView!.image = theMeme.memedImage
         
         // right ADD button
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "+", style: .Plain, target: self, action: "showMemeEditor")
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .Plain, target: self, action: "showMemeEditor")
         
         // TODO: show a Delete button?
         
