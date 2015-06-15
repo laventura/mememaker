@@ -11,6 +11,7 @@ import UIKit
 class MemeCollectionViewController: UICollectionViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     var currentIndex: Int?
+    let animationDuration = 0.20
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,6 +75,22 @@ class MemeCollectionViewController: UICollectionViewController, UICollectionView
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return appDelegate().memes.count
     }
+    
+    // Test - highlighting
+    override func collectionView(collectionView: UICollectionView, didHighlightItemAtIndexPath indexPath: NSIndexPath) {
+        let selectedCell = collectionView.cellForItemAtIndexPath(indexPath) as MemeCollectionViewCell!
+        
+        UIView.animateWithDuration(animationDuration, animations: {selectedCell.transform = CGAffineTransformMakeScale(4, 4)})
+        
+    }
+    
+    override func collectionView(collectionView: UICollectionView, didUnhighlightItemAtIndexPath indexPath: NSIndexPath) {
+        let selectedCell = collectionView.cellForItemAtIndexPath(indexPath) as MemeCollectionViewCell!
+        
+        UIView.animateWithDuration(animationDuration, animations: {selectedCell.transform = CGAffineTransformIdentity})
+        
+    }
+    // end test
     
     // MARK: - Utility
     func appDelegate() -> AppDelegate {
