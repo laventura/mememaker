@@ -16,21 +16,15 @@ class MemeTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
         // Add button
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .Plain, target: self, action: "showMemeEditor")
         
         // TODO: Edit button on Left?
         
-        self.navigationItem.title = "Sent Memes"
+        navigationItem.title = "Sent Memes"
         
-        if self.appDelegate().memes.count == 0 {
-            self.showMemeEditor()
+        if appDelegate().memes.count == 0 {
+            showMemeEditor()
         }
         
     }
@@ -38,11 +32,11 @@ class MemeTableViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.tabBarController?.tabBar.hidden = false
+        tabBarController?.tabBar.hidden = false
         
-        self.tableView.rowHeight = 140.0
+        tableView.rowHeight = 140.0
         
-        self.tableView.reloadData()
+        tableView.reloadData()
     }
     
     func appDelegate() -> AppDelegate {
@@ -76,8 +70,6 @@ class MemeTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        // TODO
-        // do the detailVC
         
         // save ref to the selected Meme
         currentIndex = indexPath.row
@@ -89,15 +81,6 @@ class MemeTableViewController: UITableViewController {
         
     }
     
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
     
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -110,17 +93,6 @@ class MemeTableViewController: UITableViewController {
         }    
     }
     
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     // MARK: - Utility
     func showMemeEditor() {

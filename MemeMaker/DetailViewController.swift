@@ -18,8 +18,8 @@ class DetailViewController: UIViewController {
 
         // hide the tab bar
         self.tabBarController?.tabBar.hidden = true
-        // TODO: set the image view
-        self.memeImageView!.image = theMeme.memedImage
+        
+        memeImageView!.image = theMeme.memedImage
         
         // right ADD button
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .Plain, target: self, action: "showMemeEditor")
@@ -28,17 +28,6 @@ class DetailViewController: UIViewController {
         
     }
 
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     // MARK: - Utility
     func showMemeEditor() {

@@ -16,40 +16,29 @@ class MemeCollectionViewController: UICollectionViewController, UICollectionView
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .Plain, target: self, action: "showMemeEditor")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .Plain, target: self, action: "showMemeEditor")
         
-        self.navigationItem.title = "Sent Memes"
+        navigationItem.title = "Sent Memes"
     }
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.tabBarController?.tabBar.hidden = false
+        tabBarController?.tabBar.hidden = false
         
-        self.collectionView!.allowsMultipleSelection = false
+        collectionView!.allowsMultipleSelection = false
         
         // reload the collection
-        self.collectionView!.reloadData()
+        collectionView!.reloadData()
         
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
     
     // MARK: - Collection View Delegate
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         // save ref to the selected Meme
-        // currentIndex = indexPath.row
-        
+        currentIndex = indexPath.row
         
         let theMeme = appDelegate().memes[indexPath.row]
         

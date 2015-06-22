@@ -83,13 +83,13 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     // MARK: - Keyboard
     func keyboardWillShow(notifcation: NSNotification) {
         if bottomText.isFirstResponder() {
-            self.view.frame.origin.y -= getKeyboardHeight(notifcation)
+            view.frame.origin.y -= getKeyboardHeight(notifcation)
         }
     }
     
     func keyboardWillHide(notifcation: NSNotification) {
         if bottomText.isFirstResponder() {
-            self.view.frame.origin.y += getKeyboardHeight(notifcation)
+            view.frame.origin.y += getKeyboardHeight(notifcation)
         }
     }
     
@@ -115,7 +115,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     // MARK: - TextField
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        self.view.endEditing(true)
+        view.endEditing(true)
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -147,22 +147,22 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     // MARK: - Actions
     
     @IBAction func activityPressed(sender: UIBarButtonItem) {
-        let memedImage = self.saveMeme()
+        let memedImage = saveMeme()
         
         // pass along the meme to the VC
         let activityVC = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
         
         activityVC.completionWithItemsHandler = { (activityType: String!, completed: Bool, returnedItems: [AnyObject]!, activityError: NSError!) in
             if completed {
-                // TODO: there should be a better way here..
+                // Is there should be a better way here?
                 self.presentTabController()
             }
         }
-        self.presentViewController(activityVC, animated: true, completion: nil)
+        presentViewController(activityVC, animated: true, completion: nil)
     }
     
     @IBAction func cancelPressed(sender: UIBarButtonItem) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil)
     }
     @IBAction func chooseAlbum(sender: UIBarButtonItem) {
         let picker = UIImagePickerController()
@@ -189,7 +189,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     // MARK: - Utilities
     func presentTabController() {
         var tabController = self.storyboard?.instantiateViewControllerWithIdentifier("IDTabBarController") as! UITabBarController
-        self.presentViewController(tabController, animated: true, completion: nil)
+        presentViewController(tabController, animated: true, completion: nil)
     }
     
     func appDelegate() -> AppDelegate {
@@ -201,11 +201,11 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         var theMeme = Meme(uuid: NSUUID().UUIDString,
             top: topText.text!, bottom: bottomText.text!,
-            originalImage: self.previewImageView.image!,
+            originalImage: previewImageView.image!,
             memedImage: memedImage)
         
         // store the meme
-        self.appDelegate().memes.append(theMeme)
+        appDelegate().memes.append(theMeme)
         
         return memedImage
     }
