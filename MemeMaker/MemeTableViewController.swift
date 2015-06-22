@@ -46,7 +46,7 @@ class MemeTableViewController: UITableViewController {
     }
     
     func appDelegate() -> AppDelegate {
-        return UIApplication.sharedApplication().delegate as AppDelegate
+        return UIApplication.sharedApplication().delegate as! AppDelegate
     }
 
     // MARK: - Table view data source
@@ -63,7 +63,7 @@ class MemeTableViewController: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("MemeTableCell", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("MemeTableCell", forIndexPath: indexPath)as! UITableViewCell
 
         let theMeme = appDelegate().memes[indexPath.row]
         
@@ -81,7 +81,7 @@ class MemeTableViewController: UITableViewController {
         
         // save ref to the selected Meme
         currentIndex = indexPath.row
-        let detailVC = self.storyboard?.instantiateViewControllerWithIdentifier("DetailViewController") as DetailViewController
+        let detailVC = self.storyboard?.instantiateViewControllerWithIdentifier("DetailViewController") as! DetailViewController
         let theMeme = appDelegate().memes[indexPath.row]
         detailVC.theMeme = theMeme
         // nav to detailVC
@@ -124,7 +124,7 @@ class MemeTableViewController: UITableViewController {
     
     // MARK: - Utility
     func showMemeEditor() {
-        var memeEditorVC = self.storyboard?.instantiateViewControllerWithIdentifier("EditorViewController") as EditorViewController
+        var memeEditorVC = self.storyboard?.instantiateViewControllerWithIdentifier("EditorViewController") as! EditorViewController
         
         // TODO: should we pass any selected Meme data?
         

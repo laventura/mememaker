@@ -53,7 +53,7 @@ class MemeCollectionViewController: UICollectionViewController, UICollectionView
         
         let theMeme = appDelegate().memes[indexPath.row]
         
-        let detailVC = self.storyboard?.instantiateViewControllerWithIdentifier("DetailViewController") as DetailViewController
+        let detailVC = self.storyboard?.instantiateViewControllerWithIdentifier("DetailViewController") as! DetailViewController
         
         // pass the selected meme to the DetailVC
         detailVC.theMeme = theMeme
@@ -63,7 +63,7 @@ class MemeCollectionViewController: UICollectionViewController, UICollectionView
     
     // MARK: - Collection View Data Source
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("MemeCollectionCell", forIndexPath: indexPath) as MemeCollectionViewCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("MemeCollectionCell", forIndexPath: indexPath) as! MemeCollectionViewCell
         
         let theMeme = appDelegate().memes[indexPath.row]
         
@@ -78,14 +78,14 @@ class MemeCollectionViewController: UICollectionViewController, UICollectionView
     
     // Test - highlighting
     override func collectionView(collectionView: UICollectionView, didHighlightItemAtIndexPath indexPath: NSIndexPath) {
-        let selectedCell = collectionView.cellForItemAtIndexPath(indexPath) as MemeCollectionViewCell!
+        let selectedCell = collectionView.cellForItemAtIndexPath(indexPath) as! MemeCollectionViewCell!
         
         UIView.animateWithDuration(animationDuration, animations: {selectedCell.transform = CGAffineTransformMakeScale(4, 4)})
         
     }
     
     override func collectionView(collectionView: UICollectionView, didUnhighlightItemAtIndexPath indexPath: NSIndexPath) {
-        let selectedCell = collectionView.cellForItemAtIndexPath(indexPath) as MemeCollectionViewCell!
+        let selectedCell = collectionView.cellForItemAtIndexPath(indexPath) as! MemeCollectionViewCell!
         
         UIView.animateWithDuration(animationDuration, animations: {selectedCell.transform = CGAffineTransformIdentity})
         
@@ -94,11 +94,11 @@ class MemeCollectionViewController: UICollectionViewController, UICollectionView
     
     // MARK: - Utility
     func appDelegate() -> AppDelegate {
-        return UIApplication.sharedApplication().delegate as AppDelegate
+        return UIApplication.sharedApplication().delegate as! AppDelegate
     }
     
     func showMemeEditor() {
-        var memeEditorVC = self.storyboard?.instantiateViewControllerWithIdentifier("EditorViewController") as EditorViewController
+        var memeEditorVC = self.storyboard?.instantiateViewControllerWithIdentifier("EditorViewController") as! EditorViewController
         
         // TODO: should we pass any selected Meme data?
         

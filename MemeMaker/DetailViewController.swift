@@ -42,7 +42,7 @@ class DetailViewController: UIViewController {
     
     // MARK: - Utility
     func showMemeEditor() {
-        var memeEditorVC = self.storyboard?.instantiateViewControllerWithIdentifier("EditorViewController") as EditorViewController
+        var memeEditorVC = self.storyboard?.instantiateViewControllerWithIdentifier("EditorViewController") as! EditorViewController
         
         // TODO: should we pass any selected Meme data?
         

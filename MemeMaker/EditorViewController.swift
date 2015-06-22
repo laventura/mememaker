@@ -45,9 +45,11 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         topText.defaultTextAttributes = memeTextAttributes
         topText.text = "TOP"
         topText.textAlignment = .Center
+        topText.autocapitalizationType = UITextAutocapitalizationType.AllCharacters
         bottomText.defaultTextAttributes = memeTextAttributes
         bottomText.text = "BOTTOM"
         bottomText.textAlignment = .Center
+        bottomText.autocapitalizationType = UITextAutocapitalizationType.AllCharacters
         
         activityButton.enabled = false // initially
         
@@ -94,7 +96,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     // Get the height of the keyboard
     func getKeyboardHeight(notification: NSNotification) -> CGFloat {
         let userInfo = notification.userInfo
-        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as NSValue // of CGRect
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
         return keyboardSize.CGRectValue().height
     }
     
@@ -112,7 +114,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     
     // MARK: - TextField
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         self.view.endEditing(true)
     }
     
@@ -128,6 +130,19 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
             bottomText.text = ""
         }
     }
+    
+    // capitalize all characters automagically
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        
+        let lowercaseCharRange = (string as NSString).rangeOfCharacterFromSet(NSCharacterSet.lowercaseLetterCharacterSet())
+        
+        if lowercaseCharRange.location != NSNotFound {
+            textField.text = (textField.text as NSString).stringByReplacingCharactersInRange(range, withString: string.uppercaseString)
+            return false
+        }
+          return true
+    }
+    
     
     // MARK: - Actions
     
@@ -173,12 +188,12 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     // MARK: - Utilities
     func presentTabController() {
-        var tabController = self.storyboard?.instantiateViewControllerWithIdentifier("IDTabBarController") as UITabBarController
+        var tabController = self.storyboard?.instantiateViewControllerWithIdentifier("IDTabBarController") as! UITabBarController
         self.presentViewController(tabController, animated: true, completion: nil)
     }
     
     func appDelegate() -> AppDelegate {
-        return UIApplication.sharedApplication().delegate as AppDelegate
+        return UIApplication.sharedApplication().delegate as! AppDelegate
     }
     
     func saveMeme() -> UIImage {
@@ -213,17 +228,5 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         return memedImage
     }
     
-    
-    // MARK:
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
