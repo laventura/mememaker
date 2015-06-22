@@ -23,9 +23,9 @@ class MemeTableViewController: UITableViewController {
         
         navigationItem.title = "Sent Memes"
         
-        if appDelegate().memes.count == 0 {
-            showMemeEditor()
-        }
+//        if appDelegate().memes.count == 0 {
+//            showMemeEditor()
+//        }
         
     }
 

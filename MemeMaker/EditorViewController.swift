@@ -147,7 +147,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     // MARK: - Actions
     
     @IBAction func activityPressed(sender: UIBarButtonItem) {
-        let memedImage = saveMeme()
+        let memedImage = generateMemedImage()
         
         // pass along the meme to the VC
         let activityVC = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
@@ -155,6 +155,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         activityVC.completionWithItemsHandler = { (activityType: String!, completed: Bool, returnedItems: [AnyObject]!, activityError: NSError!) in
             if completed {
                 // Is there should be a better way here?
+                let xx = self.saveMeme()
                 self.presentTabController()
             }
         }
