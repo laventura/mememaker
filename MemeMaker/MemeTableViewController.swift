@@ -18,14 +18,8 @@ class MemeTableViewController: UITableViewController {
 
         // Add button
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .Plain, target: self, action: "showMemeEditor")
-        
-        // TODO: Edit button on Left?
-        
+                
         navigationItem.title = "Sent Memes"
-        
-//        if appDelegate().memes.count == 0 {
-//            showMemeEditor()
-//        }
         
     }
 
