@@ -17,8 +17,8 @@ struct Meme {
     var memedImage:     UIImage
 }
 
-    extension Meme: Equatable {}
+extension Meme: Equatable {}
 
-    func ==(left: Meme, right:Meme) -> Bool {
-        return left.uuid == right.uuid
-    }
+func ==(left: Meme, right:Meme) -> Bool {
+    return left.uuid == right.uuid
+}

@@ -83,13 +83,13 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     // MARK: - Keyboard
     func keyboardWillShow(notifcation: NSNotification) {
         if bottomText.isFirstResponder() {
-            view.frame.origin.y -= getKeyboardHeight(notifcation)
+            view.frame.origin.y = -getKeyboardHeight(notifcation)
         }
     }
     
     func keyboardWillHide(notifcation: NSNotification) {
         if bottomText.isFirstResponder() {
-            view.frame.origin.y += getKeyboardHeight(notifcation)
+            view.frame.origin.y = 0
         }
     }
     
@@ -124,10 +124,8 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
-        if topText.text == "TOP" {
-            topText.text = ""
-        } else if bottomText.text == "BOTTOM" {
-            bottomText.text = ""
+        if ((textField == topText &&  topText.text == "TOP") || (textField == bottomText && bottomText.text == "BOTTOM")) {
+            textField.text = ""
         }
     }
     
