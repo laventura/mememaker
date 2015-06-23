@@ -2,6 +2,8 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3cj-2W-3Yx">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Editor View Controller-->
@@ -67,31 +69,43 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="wdR-UL-DTu" firstAttribute="top" secondItem="8RV-vy-yNM" secondAttribute="bottom" constant="-62" id="116-US-3vG"/>
+                            <constraint firstAttribute="bottom" secondItem="DGB-eP-EMb" secondAttribute="bottom" constant="60" id="98d-6e-Uvk"/>
                             <constraint firstItem="wdR-UL-DTu" firstAttribute="top" secondItem="BUs-9f-NDv" secondAttribute="bottom" id="9Fz-2n-XaF"/>
                             <constraint firstItem="BUs-9f-NDv" firstAttribute="top" secondItem="4SX-OR-mk8" secondAttribute="top" id="Bq6-Eb-rgY"/>
-                            <constraint firstItem="wdR-UL-DTu" firstAttribute="centerY" secondItem="DGB-eP-EMb" secondAttribute="centerY" constant="-215" id="Bq8-A5-cz8"/>
+                            <constraint firstItem="DGB-eP-EMb" firstAttribute="centerY" secondItem="wdR-UL-DTu" secondAttribute="bottom" constant="-40" id="Bq8-A5-cz8"/>
+                            <constraint firstItem="8RV-vy-yNM" firstAttribute="top" secondItem="xIo-kX-Mf4" secondAttribute="bottom" constant="40" id="GgI-Zn-vbW"/>
                             <constraint firstItem="wdR-UL-DTu" firstAttribute="width" secondItem="DGB-eP-EMb" secondAttribute="width" id="K9V-JL-cug"/>
                             <constraint firstAttribute="trailing" secondItem="wdR-UL-DTu" secondAttribute="trailing" id="M7O-o7-UwK"/>
                             <constraint firstItem="wdR-UL-DTu" firstAttribute="top" secondItem="8RV-vy-yNM" secondAttribute="bottom" constant="-66" id="Mzb-1X-FWb"/>
                             <constraint firstAttribute="trailing" secondItem="m5r-Xz-zEV" secondAttribute="trailing" id="OWg-Y3-hen"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="DGB-eP-EMb" secondAttribute="bottom" constant="60" id="UC2-tu-CUG"/>
                             <constraint firstItem="8RV-vy-yNM" firstAttribute="width" secondItem="wdR-UL-DTu" secondAttribute="width" id="VGt-ac-fZL"/>
                             <constraint firstItem="wdR-UL-DTu" firstAttribute="centerX" secondItem="DGB-eP-EMb" secondAttribute="centerX" id="WkL-ds-tDy"/>
+                            <constraint firstItem="wdR-UL-DTu" firstAttribute="top" secondItem="8RV-vy-yNM" secondAttribute="bottom" constant="-66" id="aac-JL-esl"/>
                             <constraint firstItem="aTF-J3-QcH" firstAttribute="top" secondItem="m5r-Xz-zEV" secondAttribute="bottom" id="b94-0e-DzY"/>
+                            <constraint firstItem="DGB-eP-EMb" firstAttribute="top" secondItem="wdR-UL-DTu" secondAttribute="bottom" constant="-66" id="bI4-B5-H3u"/>
                             <constraint firstItem="m5r-Xz-zEV" firstAttribute="leading" secondItem="4SX-OR-mk8" secondAttribute="leading" id="dc0-Yi-JLD"/>
                             <constraint firstAttribute="trailing" secondItem="BUs-9f-NDv" secondAttribute="trailing" id="gFx-Kh-6PF"/>
                             <constraint firstItem="m5r-Xz-zEV" firstAttribute="top" secondItem="wdR-UL-DTu" secondAttribute="bottom" id="j7g-Jj-40F"/>
+                            <constraint firstItem="8RV-vy-yNM" firstAttribute="top" secondItem="xIo-kX-Mf4" secondAttribute="bottom" constant="45" id="lMs-0O-cZH"/>
                             <constraint firstItem="wdR-UL-DTu" firstAttribute="top" secondItem="8RV-vy-yNM" secondAttribute="bottom" constant="-66" id="oaE-Fy-JIw"/>
                             <constraint firstItem="8RV-vy-yNM" firstAttribute="centerX" secondItem="wdR-UL-DTu" secondAttribute="centerX" id="pfG-8a-S6s"/>
                             <constraint firstItem="wdR-UL-DTu" firstAttribute="top" secondItem="BUs-9f-NDv" secondAttribute="bottom" id="que-PV-5jb"/>
                             <constraint firstItem="BUs-9f-NDv" firstAttribute="leading" secondItem="4SX-OR-mk8" secondAttribute="leading" id="rqA-Sc-TbF"/>
                             <constraint firstItem="wdR-UL-DTu" firstAttribute="leading" secondItem="4SX-OR-mk8" secondAttribute="leading" id="v1T-Um-LLu"/>
-                            <constraint firstItem="8RV-vy-yNM" firstAttribute="centerY" secondItem="wdR-UL-DTu" secondAttribute="centerY" constant="-215" id="zcY-Am-Fx9"/>
+                            <constraint firstItem="8RV-vy-yNM" firstAttribute="centerY" secondItem="wdR-UL-DTu" secondAttribute="top" constant="40" id="zcY-Am-Fx9"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="116-US-3vG"/>
                                 <exclude reference="Mzb-1X-FWb"/>
                                 <exclude reference="oaE-Fy-JIw"/>
+                                <exclude reference="GgI-Zn-vbW"/>
+                                <exclude reference="lMs-0O-cZH"/>
+                                <exclude reference="zcY-Am-Fx9"/>
+                                <exclude reference="98d-6e-Uvk"/>
+                                <exclude reference="Bq8-A5-cz8"/>
+                                <exclude reference="UC2-tu-CUG"/>
                             </mask>
                         </variation>
                     </view>
@@ -164,7 +178,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rNx-rR-uQJ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rNx-rR-uQJ">
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                             </imageView>
                         </subviews>

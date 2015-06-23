@@ -24,6 +24,14 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     var receivedMeme: Meme?
     
+    // Create meme font
+    let memeTextAttributes = [
+        NSStrokeColorAttributeName : UIColor.blackColor(),
+        NSForegroundColorAttributeName: UIColor.whiteColor(),
+        NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+        NSStrokeWidthAttributeName : -3.0
+    ]
+
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -34,24 +42,15 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         bottomText.delegate = self
         
         // text attributes
-        // Create meme font
-        let memeTextAttributes = [
-            NSStrokeColorAttributeName : UIColor.blackColor(),
-            NSForegroundColorAttributeName: UIColor.whiteColor(),
-            NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-            NSStrokeWidthAttributeName : -3.0
-        ]
         
-        topText.defaultTextAttributes = memeTextAttributes
-        topText.text = "TOP"
-        topText.textAlignment = .Center
-        topText.autocapitalizationType = UITextAutocapitalizationType.AllCharacters
-        bottomText.defaultTextAttributes = memeTextAttributes
-        bottomText.text = "BOTTOM"
-        bottomText.textAlignment = .Center
-        bottomText.autocapitalizationType = UITextAutocapitalizationType.AllCharacters
+        setTextAttributes(topText, attributes: memeTextAttributes, placeholderText: "TOP")
+        setTextAttributes(bottomText, attributes: memeTextAttributes, placeholderText: "BOTTOM")
+    
         
         activityButton.enabled = false // initially
+        
+        // Aspect Fit
+        previewImageView.contentMode = UIViewContentMode.ScaleAspectFit
         
         // see if Camera available?
         if(!UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)) {
@@ -77,7 +76,13 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
 
     // MARK: - Utilities
-    
+    // helper func
+    func setTextAttributes(textField: UITextField, attributes: [String:AnyObject], placeholderText: String) {
+        textField.defaultTextAttributes = attributes
+        textField.text = placeholderText
+        textField.textAlignment = .Center
+        textField.autocapitalizationType = UITextAutocapitalizationType.AllCharacters
+    }
     
     
     // MARK: - Keyboard
@@ -152,8 +157,9 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         activityVC.completionWithItemsHandler = { (activityType: String!, completed: Bool, returnedItems: [AnyObject]!, activityError: NSError!) in
             if completed {
-                // Is there should be a better way here?
-                let xx = self.saveMeme()
+                // Is there a better way here?
+                // let notused = self.saveMeme()
+                self.saveMemeWithImage(memedImage)
                 self.presentTabController()
             }
         }
@@ -185,6 +191,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         
     }
     
+    
     // MARK: - Utilities
     func presentTabController() {
         var tabController = self.storyboard?.instantiateViewControllerWithIdentifier("IDTabBarController") as! UITabBarController
@@ -209,14 +216,29 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         return memedImage
     }
     
+    func saveMemeWithImage(memedImage: UIImage) {
+        
+        var theMeme = Meme(uuid: NSUUID().UUIDString,
+            top: topText.text!, bottom: bottomText.text!,
+            originalImage: previewImageView.image!,
+            memedImage: memedImage)
+        
+        // store the meme
+        appDelegate().memes.append(theMeme)
+
+    }
+    
     func generateMemedImage() -> UIImage {
         // hide toolbars
         navBar.hidden = true
         bottomBar.hidden = true
         
         // render view to image
-        UIGraphicsBeginImageContext(self.view.frame.size)
+        UIGraphicsBeginImageContextWithOptions(self.view.frame.size, false, 0.0) // scale 0.0 (default 1.0)
+        
+        // make snapshot
         self.view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
+        
         let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
@@ -227,5 +249,4 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         return memedImage
     }
     
-
 }
